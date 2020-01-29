@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+
+  vars:
+    - packer_version: "1.5.1"
+
+  roles:
+    - geerlingguy.packer
