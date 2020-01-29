@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+
+  vars:
+    pip_install_packages:
+      - name: docker
+    docker_apt_repository: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" 
+    docker_users: 
+      - leeming
+
+  roles:
+    - geerlingguy.pip
+    - geerlingguy.docker
+
+  tasks:
+    - name: Add primary users to docker group
+      user: 
+        name: "{{ item }}"
+        append: yes
+        groups: docker
+      with_items: "{{ docker_users }}"
