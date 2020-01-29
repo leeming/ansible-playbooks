@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+
+  vars:
+    # This is the default currently, but lets be explicit
+    - terraform_ver: '0.12.20'
+
+  roles:
+    - andrewrothstein.terraform
