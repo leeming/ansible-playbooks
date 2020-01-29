@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+
+  vars:
+    security_sudoers_passworded:
+      - leeming
+
+  roles:
+    - geerlingguy.security
