@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: true
+  become_method: sudo
+  roles:
+    - ngetchell.vscode
+  vars: 
+    vscode_extension: 
+      - mauve.terraform
